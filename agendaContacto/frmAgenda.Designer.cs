@@ -36,7 +36,6 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.picBox = new System.Windows.Forms.PictureBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
@@ -52,12 +51,13 @@
             this.hToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.correoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.telefonoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btn = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btn = new System.Windows.Forms.Button();
+            this.picBox = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -71,6 +71,7 @@
             this.groupBox1.Size = new System.Drawing.Size(173, 380);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Acciones";
             // 
             // btnBuscar
             // 
@@ -133,14 +134,7 @@
             this.groupBox2.Size = new System.Drawing.Size(266, 371);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
-            // 
-            // picBox
-            // 
-            this.picBox.Location = new System.Drawing.Point(60, 254);
-            this.picBox.Name = "picBox";
-            this.picBox.Size = new System.Drawing.Size(144, 102);
-            this.picBox.TabIndex = 10;
-            this.picBox.TabStop = false;
+            this.groupBox2.Text = "Datos";
             // 
             // comboBox1
             // 
@@ -246,40 +240,53 @@
             // hToolStripMenuItem
             // 
             this.hToolStripMenuItem.Name = "hToolStripMenuItem";
-            this.hToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.hToolStripMenuItem.Text = "Nombre";
             // 
             // correoToolStripMenuItem
             // 
             this.correoToolStripMenuItem.Name = "correoToolStripMenuItem";
-            this.correoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.correoToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.correoToolStripMenuItem.Text = "Correo";
             // 
             // telefonoToolStripMenuItem
             // 
             this.telefonoToolStripMenuItem.Name = "telefonoToolStripMenuItem";
-            this.telefonoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.telefonoToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.telefonoToolStripMenuItem.Text = "Telefono";
-            // 
-            // btn
-            // 
-            this.btn.Location = new System.Drawing.Point(668, 413);
-            this.btn.Name = "btn";
-            this.btn.Size = new System.Drawing.Size(106, 26);
-            this.btn.TabIndex = 4;
-            this.btn.Text = "Salir";
-            this.btn.UseVisualStyleBackColor = true;
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // btn
+            // 
+            this.btn.Image = global::agendaContacto.Properties.Resources.iconoSalida;
+            this.btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn.Location = new System.Drawing.Point(682, 423);
+            this.btn.Name = "btn";
+            this.btn.Size = new System.Drawing.Size(106, 53);
+            this.btn.TabIndex = 4;
+            this.btn.Text = "Salir";
+            this.btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn.UseVisualStyleBackColor = true;
+            // 
+            // picBox
+            // 
+            this.picBox.BackgroundImage = global::agendaContacto.Properties.Resources.iconoAgenda;
+            this.picBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBox.Location = new System.Drawing.Point(55, 234);
+            this.picBox.Name = "picBox";
+            this.picBox.Size = new System.Drawing.Size(163, 131);
+            this.picBox.TabIndex = 10;
+            this.picBox.TabStop = false;
+            // 
             // frmAgenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 478);
             this.Controls.Add(this.btn);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.treeView1);
@@ -291,9 +298,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,6 +333,7 @@
         private System.Windows.Forms.ToolStripMenuItem telefonoToolStripMenuItem;
         private System.Windows.Forms.Button btn;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Button btnConexion;
     }
 }
 
