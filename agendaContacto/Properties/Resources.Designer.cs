@@ -63,6 +63,36 @@ namespace agendaContacto.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cancelarEliminar {
+            get {
+                object obj = ResourceManager.GetObject("cancelarEliminar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap carnet {
+            get {
+                object obj = ResourceManager.GetObject("carnet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap guardarIco {
+            get {
+                object obj = ResourceManager.GetObject("guardarIco", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconoAgenda {
             get {
                 object obj = ResourceManager.GetObject("iconoAgenda", resourceCulture);
@@ -76,6 +106,36 @@ namespace agendaContacto.Properties {
         internal static System.Drawing.Bitmap iconoSalida {
             get {
                 object obj = ResourceManager.GetObject("iconoSalida", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lapiz {
+            get {
+                object obj = ResourceManager.GetObject("lapiz", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lupaBuscar {
+            get {
+                object obj = ResourceManager.GetObject("lupaBuscar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lupaBuscar1 {
+            get {
+                object obj = ResourceManager.GetObject("lupaBuscar1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

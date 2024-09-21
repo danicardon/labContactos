@@ -110,6 +110,12 @@
     <Content Include="dbAgenda\AgendaDb11.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\carnet.png" />
+    <None Include="Resources\cancelarEliminar.png" />
+    <None Include="Resources\lupaBuscar1.png" />
+    <None Include="Resources\guardarIco.png" />
+    <None Include="Resources\lapiz.png" />
+    <None Include="Resources\lupaBuscar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

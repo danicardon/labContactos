@@ -203,6 +203,57 @@ namespace agendaContacto
                 }
             }
 
+        //Buscar segun Nombre, Telefono o Correo
+            public DataTable BuscarPorNombre(string nombre)
+            {
+                conexiones(); // Método que abre la conexión
+
+                string query = "SELECT * FROM Contactos WHERE Nombre = @Nombre";
+                comando.CommandText = query;
+                comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@Nombre", nombre);
+
+                OleDbDataAdapter adaptador = new OleDbDataAdapter(comando);
+                DataTable resultados = new DataTable();
+                adaptador.Fill(resultados); // Llena el DataTable con los resultados de la consulta
+
+                conexion.Close(); // Cierra la conexión
+                return resultados; // Retorna los resultados
+            }
+
+            public DataTable BuscarPorCorreo(string correo)
+            {
+                conexiones();
+
+                string query = "SELECT * FROM Contactos WHERE Correo = @Correo";
+                comando.CommandText = query;
+                comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@Correo", correo);
+
+                OleDbDataAdapter adaptador = new OleDbDataAdapter(comando);
+                DataTable resultados = new DataTable();
+                adaptador.Fill(resultados);
+
+                conexion.Close();
+                return resultados;
+            }
+
+            public DataTable BuscarPorTelefono(int telefono)
+            {
+                conexiones();
+
+                string query = "SELECT * FROM Contactos WHERE Telefono = @Telefono";
+                comando.CommandText = query;
+                comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@Telefono", telefono);
+
+                OleDbDataAdapter adaptador = new OleDbDataAdapter(comando);
+                DataTable resultados = new DataTable();
+                adaptador.Fill(resultados);
+
+                conexion.Close();
+                return resultados;
+            }
 
         //public void Modificar(Stock stock)
         //{
