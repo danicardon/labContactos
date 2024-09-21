@@ -28,32 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAgenda));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.treeViewContactos = new System.Windows.Forms.TreeView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.cmbCategoria = new System.Windows.Forms.ComboBox();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.cmbCategoria = new System.Windows.Forms.Label();
-            this.txtCorreo = new System.Windows.Forms.Label();
+            this.lblCategoria = new System.Windows.Forms.Label();
+            this.correo = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblApellido = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.buscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.correoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.telefonoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.btn = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.picBox = new System.Windows.Forms.PictureBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -62,8 +59,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Controls.Add(this.btnEliminar);
+            this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Controls.Add(this.btnAgregar);
             this.groupBox1.Controls.Add(this.btnEditar);
             this.groupBox1.Location = new System.Drawing.Point(12, 27);
@@ -73,23 +70,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Acciones";
             // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(29, 309);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(106, 65);
-            this.btnBuscar.TabIndex = 3;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(29, 219);
+            this.btnEliminar.Location = new System.Drawing.Point(29, 300);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(106, 65);
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnAgregar
             // 
@@ -99,33 +88,35 @@
             this.btnAgregar.TabIndex = 0;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(29, 125);
+            this.btnEditar.Location = new System.Drawing.Point(29, 111);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(106, 65);
             this.btnEditar.TabIndex = 1;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
-            // treeView1
+            // treeViewContactos
             // 
-            this.treeView1.Location = new System.Drawing.Point(506, 36);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(255, 371);
-            this.treeView1.TabIndex = 1;
+            this.treeViewContactos.Location = new System.Drawing.Point(506, 36);
+            this.treeViewContactos.Name = "treeViewContactos";
+            this.treeViewContactos.Size = new System.Drawing.Size(255, 371);
+            this.treeViewContactos.TabIndex = 1;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.picBox);
-            this.groupBox2.Controls.Add(this.comboBox1);
-            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.cmbCategoria);
+            this.groupBox2.Controls.Add(this.txtCorreo);
             this.groupBox2.Controls.Add(this.txtTelefono);
             this.groupBox2.Controls.Add(this.txtApellido);
             this.groupBox2.Controls.Add(this.txtNombre);
-            this.groupBox2.Controls.Add(this.cmbCategoria);
-            this.groupBox2.Controls.Add(this.txtCorreo);
+            this.groupBox2.Controls.Add(this.lblCategoria);
+            this.groupBox2.Controls.Add(this.correo);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.lblApellido);
             this.groupBox2.Controls.Add(this.label1);
@@ -136,20 +127,20 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos";
             // 
-            // comboBox1
+            // cmbCategoria
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(70, 193);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 9;
+            this.cmbCategoria.FormattingEnabled = true;
+            this.cmbCategoria.Location = new System.Drawing.Point(70, 193);
+            this.cmbCategoria.Name = "cmbCategoria";
+            this.cmbCategoria.Size = new System.Drawing.Size(121, 21);
+            this.cmbCategoria.TabIndex = 9;
             // 
-            // textBox4
+            // txtCorreo
             // 
-            this.textBox4.Location = new System.Drawing.Point(135, 118);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(116, 20);
-            this.textBox4.TabIndex = 8;
+            this.txtCorreo.Location = new System.Drawing.Point(135, 118);
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(116, 20);
+            this.txtCorreo.TabIndex = 8;
             // 
             // txtTelefono
             // 
@@ -172,23 +163,23 @@
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 5;
             // 
-            // cmbCategoria
+            // lblCategoria
             // 
-            this.cmbCategoria.AutoSize = true;
-            this.cmbCategoria.Location = new System.Drawing.Point(104, 177);
-            this.cmbCategoria.Name = "cmbCategoria";
-            this.cmbCategoria.Size = new System.Drawing.Size(52, 13);
-            this.cmbCategoria.TabIndex = 4;
-            this.cmbCategoria.Text = "Categoria";
+            this.lblCategoria.AutoSize = true;
+            this.lblCategoria.Location = new System.Drawing.Point(104, 177);
+            this.lblCategoria.Name = "lblCategoria";
+            this.lblCategoria.Size = new System.Drawing.Size(52, 13);
+            this.lblCategoria.TabIndex = 4;
+            this.lblCategoria.Text = "Categoria";
             // 
-            // txtCorreo
+            // correo
             // 
-            this.txtCorreo.AutoSize = true;
-            this.txtCorreo.Location = new System.Drawing.Point(138, 102);
-            this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(38, 13);
-            this.txtCorreo.TabIndex = 3;
-            this.txtCorreo.Text = "Correo";
+            this.correo.AutoSize = true;
+            this.correo.Location = new System.Drawing.Point(138, 102);
+            this.correo.Name = "correo";
+            this.correo.Size = new System.Drawing.Size(38, 13);
+            this.correo.TabIndex = 3;
+            this.correo.Text = "Correo";
             // 
             // label3
             // 
@@ -230,51 +221,34 @@
             // buscarToolStripMenuItem
             // 
             this.buscarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hToolStripMenuItem,
-            this.correoToolStripMenuItem,
             this.telefonoToolStripMenuItem});
             this.buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
-            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.buscarToolStripMenuItem.Text = "Buscar";
-            // 
-            // hToolStripMenuItem
-            // 
-            this.hToolStripMenuItem.Name = "hToolStripMenuItem";
-            this.hToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.hToolStripMenuItem.Text = "Nombre";
-            // 
-            // correoToolStripMenuItem
-            // 
-            this.correoToolStripMenuItem.Name = "correoToolStripMenuItem";
-            this.correoToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.correoToolStripMenuItem.Text = "Correo";
+            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
+            this.buscarToolStripMenuItem.Text = "Ver";
             // 
             // telefonoToolStripMenuItem
             // 
             this.telefonoToolStripMenuItem.Name = "telefonoToolStripMenuItem";
-            this.telefonoToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.telefonoToolStripMenuItem.Text = "Telefono";
+            this.telefonoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.telefonoToolStripMenuItem.Text = "Todos";
+            this.telefonoToolStripMenuItem.Click += new System.EventHandler(this.telefonoToolStripMenuItem_Click);
             // 
-            // contextMenuStrip1
+            // btnSalir
             // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // btn
-            // 
-            this.btn.Image = global::agendaContacto.Properties.Resources.iconoSalida;
-            this.btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn.Location = new System.Drawing.Point(682, 423);
-            this.btn.Name = "btn";
-            this.btn.Size = new System.Drawing.Size(106, 53);
-            this.btn.TabIndex = 4;
-            this.btn.Text = "Salir";
-            this.btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn.UseVisualStyleBackColor = true;
+            this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
+            this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSalir.Location = new System.Drawing.Point(682, 423);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(106, 53);
+            this.btnSalir.TabIndex = 4;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btn_Click);
             // 
             // picBox
             // 
-            this.picBox.BackgroundImage = global::agendaContacto.Properties.Resources.iconoAgenda;
+            this.picBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBox.BackgroundImage")));
             this.picBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picBox.Location = new System.Drawing.Point(55, 234);
             this.picBox.Name = "picBox";
@@ -282,18 +256,29 @@
             this.picBox.TabIndex = 10;
             this.picBox.TabStop = false;
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(29, 202);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(106, 65);
+            this.btnBuscar.TabIndex = 5;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // frmAgenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 478);
-            this.Controls.Add(this.btn);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.treeView1);
+            this.Controls.Add(this.treeViewContactos);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmAgenda";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AgendaPersonal";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -309,31 +294,28 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.TreeView treeViewContactos;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.ComboBox cmbCategoria;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.Label cmbCategoria;
-        private System.Windows.Forms.Label txtCorreo;
+        private System.Windows.Forms.Label lblCategoria;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox picBox;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem buscarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem hToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem correoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem telefonoToolStripMenuItem;
-        private System.Windows.Forms.Button btn;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnConexion;
+        private System.Windows.Forms.Label correo;
+        private System.Windows.Forms.TextBox txtCorreo;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }
 

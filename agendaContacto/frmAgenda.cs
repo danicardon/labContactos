@@ -8,40 +8,123 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Collections;
+using agendaContacto;
+
 
 namespace agendaContacto
 {
     public partial class frmAgenda : Form
     {
+
         public frmAgenda()
         {
             InitializeComponent();
-        }
+            ConexionDb objAgenda = new ConexionDb();
 
-        private void btnConexion_Click(object sender, EventArgs e)
+
+            // Agregar opciones al ComboBox
+            cmbCategoria.Items.Add("Familia");
+            cmbCategoria.Items.Add("Amigos");
+            cmbCategoria.Items.Add("Trabajo");
+
+            // (Opcional) Establecer una opción predeterminada
+            cmbCategoria.SelectedIndex = -1; // Arranca Vacio
+
+
+
+            treeViewContactos.Nodes.Add("Familia");
+            treeViewContactos.Nodes.Add("Trabajo");
+            treeViewContactos.Nodes.Add("Amigos");
+        }
+        //Guardamos datos para crear nuevos contactos
+        private Contactos guardarDatos()
         {
-            // Crear una instancia de la clase Conexion
+            Contactos ContactoNuevo = new Contactos();
+
+        
+            ContactoNuevo.Nombre = txtNombre.Text;
+            ContactoNuevo.Apellido = txtApellido.Text;
+            ContactoNuevo.Telefono = int.Parse(txtTelefono.Text);
+            ContactoNuevo.Correo = txtCorreo.Text;
+
+
+            // Ver si hay una opción seleccionada en el CmbCategoria
+            if (cmbCategoria.SelectedItem != null)
+            {
+                // Obtener el texto de la opción seleccionada y asignarlo a Categoria
+                ContactoNuevo.Categoria = cmbCategoria.SelectedItem.ToString();
+            }
+            else
+            {
+                // Manejo de error si no se selecciona una categoría
+                MessageBox.Show("Seleccionar una categoria.");
+                return null; // O manejarlo como necesites
+            }
+
+            return ContactoNuevo;
+
+        }
+        
+        
+        //Verificamos si anda mediante el listado de la bd
+        private void btnListar_Click(object sender, EventArgs e)
+        {
             ConexionDb db = new ConexionDb();
-
-            // Intentar establecer la conexión
-            try
-            {
-                // Llamar al método correcto que devuelve la conexión
-                var dbConnection = db.e;
-                dbConnection.Open();
-
-                // Si la conexión se establece correctamente, muestra un mensaje
-                MessageBox.Show("Conexión exitosa a la base de datos.", "Conexión", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Cerrar la conexión después de la verificación
-                dbConnection.Close();
-            }
-            catch (Exception ex)
-            {
-                // Si ocurre un error, muestra un mensaje de error
-                MessageBox.Show("Error al establecer la conexión: " + ex.Message, "Error de Conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            db.MostrarTree(treeViewContactos);
         }
 
+
+
+
+
+        
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            Contactos nuevoContacto = guardarDatos();
+            if (nuevoContacto != null) // Asegúrate de que no sea nulo
+            {
+                ConexionDb contactoNuevo = new ConexionDb();
+                contactoNuevo.Agregar(nuevoContacto, treeViewContactos); // Pasa el TreeView
+            }
+
+        }
+
+
+
+        public void limpiar()
+        {
+
+        }
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Eliminar eliminarForm = new Eliminar(); // Usa el nombre correcto
+            eliminarForm.Show(); // Muestra el formulario
+
+        }
+
+        private void btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+       
+
+        private void telefonoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConexionDb db = new ConexionDb();
+            db.MostrarTree(treeViewContactos);
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            frmBuscar buscarForm = new frmBuscar(); // Usa el nombre correcto
+            buscarForm.Show(); // Muestra el formulario
+        }
     }
 }
