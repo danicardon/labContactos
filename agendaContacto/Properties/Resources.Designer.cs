@@ -123,6 +123,26 @@ namespace agendaContacto.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lapizHombre {
+            get {
+                object obj = ResourceManager.GetObject("lapizHombre", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LapizHombreG {
+            get {
+                object obj = ResourceManager.GetObject("LapizHombreG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap lupaBuscar {
             get {
                 object obj = ResourceManager.GetObject("lupaBuscar", resourceCulture);

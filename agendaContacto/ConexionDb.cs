@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Collections;
 using System.Data;
+using System.Diagnostics.Contracts;
 
 namespace agendaContacto
 {
@@ -81,8 +82,9 @@ namespace agendaContacto
                         string categoria = reader["Categoria"].ToString();
                         string nombre = reader["Nombre"].ToString();
                         string apellido = reader["Apellido"].ToString();
-
-                        TreeNode categoriaNode = treeView.Nodes.Cast<TreeNode>().FirstOrDefault(n => n.Text == categoria);
+                        string correo = reader["Correo"].ToString();
+                        string telefono = reader["Telefono"].ToString();
+                    TreeNode categoriaNode = treeView.Nodes.Cast<TreeNode>().FirstOrDefault(n => n.Text == categoria);
 
                         if (categoriaNode == null)
                         {
@@ -90,11 +92,28 @@ namespace agendaContacto
                             categoriaNode = new TreeNode(categoria);
                             treeView.Nodes.Add(categoriaNode);
                         }
+                    // Crear un objeto anónimo que represente el contacto
+                    var contacto = new Contactos
+                    {
+                        Nombre = nombre,
+                        Apellido = apellido,
+                        Telefono = int.TryParse(telefono, out int telefonoInt) ? telefonoInt : 0,
+                        Correo = correo,
+                        Categoria = categoria, 
+                    };
 
-                        // Agregar el contacto bajo su categoría
-                        TreeNode contactoNode = new TreeNode($"{nombre} {apellido}");
+
+                    // Agregar el contacto bajo su categoría
+                    TreeNode contactoNode = new TreeNode($"{nombre} {apellido}");
+                        contactoNode.Tag = contacto;  // Almacenar el objeto Contactos en el Tag
                         categoriaNode.Nodes.Add(contactoNode);
-                    }
+
+                }
+
+
+
+
+
 
                     reader.Close();
                 }
@@ -255,40 +274,44 @@ namespace agendaContacto
                 return resultados;
             }
 
-        //public void Modificar(Stock stock)
-        //{
-        //    try
-        //    {
-        //        conexiones();
+                public void Modificar(Contactos contactoNuevo)
+            {
+                try
+                {
+                    conexiones();
 
-        //        //Query para modificar 
-        //        comando.CommandText = "UPDATE Productos SET Nombre = ?, Descripcion = ?, Precio = ?, Stock = ?, Categoria = ? WHERE Codigo = ?";
+                    //Query para modificar 
+                    comando.CommandText = "UPDATE Contactos SET Nombre = ?, Apellido  = ?, Telefono = ?, Correo = ?, Categoria = ? WHERE Telefono = ?";
 
-        //        //Se actualizan los valores de los campos
-        //        comando.Parameters.AddWithValue("?", stock.Nombre);
-        //        comando.Parameters.AddWithValue("?", stock.Descripcion);
-        //        comando.Parameters.AddWithValue("?", stock.Precio);
-        //        comando.Parameters.AddWithValue("?", stock.Cantidad);
-        //        comando.Parameters.AddWithValue("?", stock.Categoria);
-        //        comando.Parameters.AddWithValue("?", stock.Id); // Código del producto que se va a modificar
+                //Se actualizan los valores de los campos
+                comando.Parameters.Clear();
+                    comando.Parameters.AddWithValue("?", contactoNuevo.Nombre);
+                    comando.Parameters.AddWithValue("?", contactoNuevo.Apellido);
+                    comando.Parameters.AddWithValue("?", contactoNuevo.Telefono);
+                    comando.Parameters.AddWithValue("?", contactoNuevo.Correo);
+                    comando.Parameters.AddWithValue("?", contactoNuevo.Categoria);
 
-        //        // Ejecuta el comando (Update INTO) para insertar los datos en la base de datos
-        //        comando.ExecuteNonQuery();
+                // usa Telefono para identificar el registro a modificar    
+                comando.Parameters.AddWithValue("?", contactoNuevo.Telefono);
 
-        //        MessageBox.Show("Modificado correctamente");
 
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        MessageBox.Show("ERROR EN BD " + e.ToString());
-        //    }
-        //    finally
-        //    {
-        //        conexion.Close();
-        //    }
-        //}
 
+                // Ejecuta el comando (Update INTO) para insertar los datos en la base de datos
+                comando.ExecuteNonQuery();
+
+                    MessageBox.Show("Modificado correctamente");
+
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("ERROR EN BD " + e.ToString());
+                }
+                finally
+                {
+                    conexion.Close();
+                }
+            }
 
     }
-    }
+}
 

@@ -34,11 +34,16 @@ namespace agendaContacto
         {
             ConexionDb contacto = new ConexionDb();
             contacto.Eliminar(eliminarDatos());
+
+            txtEliminar.Clear();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+       
+      
     }
 }
