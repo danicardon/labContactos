@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="archivContact.cs" />
     <Compile Include="ConexionDb.cs" />
     <Compile Include="Contactos.cs" />
     <Compile Include="frmAgenda.cs">

@@ -274,7 +274,7 @@ namespace agendaContacto
                 return resultados;
             }
 
-                public void Modificar(Contactos contactoNuevo)
+             public void Modificar(Contactos contactoNuevo)
             {
                 try
                 {

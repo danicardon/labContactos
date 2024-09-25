@@ -19,7 +19,7 @@ namespace agendaContacto
 
             btnNombre.CheckedChanged += BuscarPor;
             btnTelefono.CheckedChanged += BuscarPor;
-            btnCorreo.CheckedChanged += BuscarPor;
+            btnCorreo.CheckedChanged += BuscarPor;  
 
         }
         private void BuscarPor(object sender, EventArgs e)

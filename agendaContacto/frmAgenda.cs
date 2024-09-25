@@ -23,7 +23,7 @@ namespace agendaContacto
         public frmAgenda()
         {
             InitializeComponent();
-            
+
             ConexionDb objAgenda = new ConexionDb();
 
             // Agregar opciones al ComboBox
@@ -45,6 +45,23 @@ namespace agendaContacto
 
 
         }
+        //Declaramos obj para poder exportar
+        archivContact exportarContancto = new archivContact();
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            string categoria = cmbCategoria.Text;
+            int telefono = Convert.ToInt32(txtTelefono.Text);
+            
+            //Enviar los datos escritos en la agenada para exportar
+            exportarContancto.Grabar(txtNombre.Text, txtApellido.Text,
+            telefono,txtCorreo.Text, categoria );
+            MessageBox.Show("Datos listos para exportar");
+
+            Limpiar();
+        }
+
+
         //Guardamos datos para crear nuevos contactos
         private Contactos guardarDatos()
         {
@@ -176,6 +193,40 @@ namespace agendaContacto
         {
 
         }
-     
+
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Eliminar eliminarForm = new Eliminar(); // Usa el nombre correcto
+            eliminarForm.Show(); // Muestra el formulario
+
+        }
+
+        private void buscarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmBuscar buscarForm = new frmBuscar(); // Usa el nombre correcto
+            buscarForm.Show(); // Muestra el formulario
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close(); 
+        }
+
+        private void treeViewContactos_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
+        private void controlCajaDetexto()
+        {
+            if (txtApellido.Text != "" && txtCorreo.Text != " " && txtNombre.Text !="" && txtTelefono.Text != " ")
+            {
+                btnExportar.Enabled = true; 
+            }
+            else
+            {
+                btnExportar.Enabled = false;
+            }
+        }
+        
     }
 }

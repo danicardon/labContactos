@@ -20,14 +20,14 @@ namespace agendaContacto
 
         private Contactos eliminarDatos()
         {
-            Contactos contactoNuevo = new Contactos();
+                Contactos contactoNuevo = new Contactos();
 
-            string nombre = txtEliminar.Text;
+                string nombre = txtEliminar.Text;
 
-            contactoNuevo.Nombre = nombre;
+                contactoNuevo.Nombre = nombre;
 
 
-            return contactoNuevo;
+                return contactoNuevo;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -36,6 +36,8 @@ namespace agendaContacto
             contacto.Eliminar(eliminarDatos());
 
             txtEliminar.Clear();
+
+            Close();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
