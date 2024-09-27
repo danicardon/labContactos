@@ -103,23 +103,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\iconoAgenda.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\iconoSalida.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Database\contactosDB.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Resources\LapizHombreG.png" />
-    <None Include="Resources\lapizHombre.png" />
-    <None Include="Resources\carnet.png" />
-    <None Include="Resources\cancelarEliminar.png" />
-    <None Include="Resources\lupaBuscar1.png" />
-    <None Include="Resources\guardarIco.png" />
-    <None Include="Resources\lapiz.png" />
-    <None Include="Resources\lupaBuscar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

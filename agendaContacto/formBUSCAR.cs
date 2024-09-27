@@ -15,31 +15,38 @@ namespace agendaContacto
         public formBUSCAR()
         {
             InitializeComponent();
-      
 
+            // Deshabilitar los campos de texto inicialmente
+            txtNombre.Enabled = false;
+            txtTelefono.Enabled = false;
+            txtCorreo.Enabled = false;
+
+            // Asignar eventos CheckedChanged a los RadioButtons
             btnNombre.CheckedChanged += BuscarPor;
             btnTelefono.CheckedChanged += BuscarPor;
-            btnCorreo.CheckedChanged += BuscarPor;  
-
+            btnCorreo.CheckedChanged += BuscarPor;
         }
+
         private void BuscarPor(object sender, EventArgs e)
         {
+            // Habilitar o deshabilitar campos de texto según el RadioButton seleccionado
             if (btnNombre.Checked)
-            {txtNombre.Enabled = true;
+            {
+                txtNombre.Enabled = true;
                 txtTelefono.Enabled = false;
                 txtCorreo.Enabled = false;
-
-            } else if (btnTelefono.Checked)
+            }
+            else if (btnTelefono.Checked)
             {
                 txtNombre.Enabled = false;
                 txtTelefono.Enabled = true;
                 txtCorreo.Enabled = false;
-
-            }else if (btnCorreo.Checked)
-             {
-                 txtNombre.Enabled = false;
-                 txtTelefono.Enabled = false;
-                 txtCorreo.Enabled = true;
+            }
+            else if (btnCorreo.Checked)
+            {
+                txtNombre.Enabled = false;
+                txtTelefono.Enabled = false;
+                txtCorreo.Enabled = true;
             }
         }
 
@@ -50,36 +57,29 @@ namespace agendaContacto
             // DataTable para almacenar datos de la BD 
             DataTable resultadoBusqueda = new DataTable();
 
-           
-
+            // Buscar por el campo correspondiente
             if (!string.IsNullOrWhiteSpace(txtNombre.Text))
             {
                 string nombre = txtNombre.Text;
                 resultadoBusqueda = conexion.BuscarPorNombre(nombre); // Busca por nombre
-              
             }
-
             if (!string.IsNullOrWhiteSpace(txtTelefono.Text) && int.TryParse(txtTelefono.Text, out int telefono))
             {
                 resultadoBusqueda = conexion.BuscarPorTelefono(telefono); // Busca por teléfono
             }
-
-
             if (!string.IsNullOrWhiteSpace(txtCorreo.Text))
             {
                 string correo = txtCorreo.Text;
                 resultadoBusqueda = conexion.BuscarPorCorreo(correo);
-                
             }
-                // Mostrar los resultados en el DataGridView
-             dgvContacto.DataSource = resultadoBusqueda;
-            
+
+            // Mostrar los resultados en el DataGridView
+            dgvContacto.DataSource = resultadoBusqueda;
         }
+
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
     }
 }
-
