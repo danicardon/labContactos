@@ -24,7 +24,7 @@ namespace agendaContacto
         {
             InitializeComponent();
 
-            ConexionDb objAgenda = new ConexionDb();
+            conexionDB objAgenda = new conexionDB();
 
             // Agregar opciones al ComboBox
             cmbCategoria.Items.Add("Familia");
@@ -40,13 +40,13 @@ namespace agendaContacto
             treeViewContactos.Nodes.Add("Trabajo");
             treeViewContactos.Nodes.Add("Amigos");
 
-            ConexionDb db = new ConexionDb();
+            conexionDB db = new conexionDB();
             db.MostrarTree(treeViewContactos);
 
 
         }
         //Declaramos obj para poder exportar
-        archivContact exportarContancto = new archivContact();
+        expContactos exportarContancto = new expContactos();
 
         private void btnExportar_Click(object sender, EventArgs e)
         {
@@ -98,7 +98,7 @@ namespace agendaContacto
         //Verificamos si anda mediante el listado de la bd
         private void btnListar_Click(object sender, EventArgs e)
         {
-            ConexionDb db = new ConexionDb();
+            conexionDB db = new conexionDB();
             db.MostrarTree(treeViewContactos);
         }
         private void NoSeRepita()
@@ -111,24 +111,24 @@ namespace agendaContacto
             Contactos nuevoContacto = guardarDatos();
             if (nuevoContacto != null) // Asegúrate de que no sea nulo
             {
-                ConexionDb contactoNuevo = new ConexionDb();
+                conexionDB contactoNuevo = new conexionDB();
                 contactoNuevo.Agregar(nuevoContacto, treeViewContactos); // Pasa el TreeView
                 
             }
 
             Limpiar();
-            ConexionDb db = new ConexionDb();
+            conexionDB db = new conexionDB();
             db.MostrarTree(treeViewContactos);
 
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            ConexionDb editContacto = new ConexionDb();
+            conexionDB editContacto = new conexionDB();
 
             editContacto.Modificar(guardarDatos());
 
-            ConexionDb db = new ConexionDb();
+            conexionDB db = new conexionDB();
             db.MostrarTree(treeViewContactos);
 
         }
@@ -149,7 +149,7 @@ namespace agendaContacto
         //Actualizar 
         private void telefonoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConexionDb db = new ConexionDb();
+            conexionDB db = new conexionDB();
             db.MostrarTree(treeViewContactos);
         }
 

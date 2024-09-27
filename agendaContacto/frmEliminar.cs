@@ -32,7 +32,7 @@ namespace agendaContacto
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            ConexionDb contacto = new ConexionDb();
+            conexionDB contacto = new conexionDB();
             contacto.Eliminar(eliminarDatos());
 
             txtEliminar.Clear();

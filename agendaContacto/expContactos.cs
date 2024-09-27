@@ -7,7 +7,7 @@ using System.IO;
 using System.Windows.Forms;
 namespace agendaContacto
 {
-    internal class archivContact
+    internal class expContactos
     {
 
         public string NombreArchivo = "Contactos.csv"; 

@@ -46,7 +46,7 @@ namespace agendaContacto
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             // Instancia para la conexion
-            ConexionDb conexion = new ConexionDb();
+            conexionDB conexion = new conexionDB();
             // DataTable para almacenar datos de la BD 
             DataTable resultadoBusqueda = new DataTable();
 

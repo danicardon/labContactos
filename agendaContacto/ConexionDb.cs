@@ -13,7 +13,7 @@ using System.Diagnostics.Contracts;
 
 namespace agendaContacto
 {
-    internal class ConexionDb
+    internal class conexionDB
     {
          //creamos objeto para conectarnos con la bd
             private OleDbConnection conexion = new OleDbConnection();
@@ -21,7 +21,7 @@ namespace agendaContacto
             private OleDbCommand comando = new OleDbCommand();
             //nos sirve para adaptar los datos que estan mal en la bd   
             private OleDbDataAdapter adaptador = new OleDbDataAdapter();
-            private string cadenaConexion = "Provider=Microsoft.ACE.OLEDB.16.0;Data Source=C:\\Users\\mauro\\source\\repos\\agendaContactos\\agendaContacto\\agendaContacto\\dbAgenda\\AgendaDb11.accdb";
+            private string cadenaConexion = "Provider=Microsoft.ACE.OLEDB.16.0;Data Source=C:\\Users\\dcardon\\source\\repos\\LabContactos\\agendaContacto\\Database\\contactosDB.accdb";
             private string Tabla = "Contactos";
 
 
