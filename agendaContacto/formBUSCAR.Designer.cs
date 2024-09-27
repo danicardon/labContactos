@@ -1,6 +1,6 @@
 ﻿namespace agendaContacto
 {
-    partial class frmBuscar
+    partial class formBUSCAR
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBuscar));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formBUSCAR));
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtCorreo = new System.Windows.Forms.TextBox();
@@ -90,7 +90,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(169, 17);
+            this.label2.Location = new System.Drawing.Point(132, 17);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 13);
             this.label2.TabIndex = 9;
@@ -99,7 +99,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(336, 16);
+            this.label3.Location = new System.Drawing.Point(274, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 10;
@@ -108,7 +108,7 @@
             // btnNombre
             // 
             this.btnNombre.AutoSize = true;
-            this.btnNombre.Location = new System.Drawing.Point(6, 19);
+            this.btnNombre.Location = new System.Drawing.Point(12, 26);
             this.btnNombre.Name = "btnNombre";
             this.btnNombre.Size = new System.Drawing.Size(62, 17);
             this.btnNombre.TabIndex = 12;
@@ -119,7 +119,7 @@
             // btnTelefono
             // 
             this.btnTelefono.AutoSize = true;
-            this.btnTelefono.Location = new System.Drawing.Point(163, 19);
+            this.btnTelefono.Location = new System.Drawing.Point(169, 26);
             this.btnTelefono.Name = "btnTelefono";
             this.btnTelefono.Size = new System.Drawing.Size(67, 17);
             this.btnTelefono.TabIndex = 13;
@@ -130,7 +130,7 @@
             // btnCorreo
             // 
             this.btnCorreo.AutoSize = true;
-            this.btnCorreo.Location = new System.Drawing.Point(321, 19);
+            this.btnCorreo.Location = new System.Drawing.Point(327, 26);
             this.btnCorreo.Name = "btnCorreo";
             this.btnCorreo.Size = new System.Drawing.Size(56, 17);
             this.btnCorreo.TabIndex = 14;
@@ -148,7 +148,7 @@
             this.groupBox1.Size = new System.Drawing.Size(418, 61);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "BUSCAR POR ";
+            this.groupBox1.Text = "Busqueda de contactos";
             // 
             // btnSalir
             // 
@@ -176,10 +176,9 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Image = global::agendaContacto.Properties.Resources.lupaBuscar;
-            this.btnBuscar.Location = new System.Drawing.Point(193, 147);
+            this.btnBuscar.Location = new System.Drawing.Point(179, 160);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 48);
+            this.btnBuscar.Size = new System.Drawing.Size(102, 29);
             this.btnBuscar.TabIndex = 4;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

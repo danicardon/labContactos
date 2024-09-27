@@ -50,34 +50,34 @@
     <Compile Include="expContactos.cs" />
     <Compile Include="conexionDB.cs" />
     <Compile Include="Contactos.cs" />
-    <Compile Include="frmAgenda.cs">
+    <Compile Include="formGENERAL.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAgenda.Designer.cs">
-      <DependentUpon>frmAgenda.cs</DependentUpon>
+    <Compile Include="formGENERAL.Designer.cs">
+      <DependentUpon>formGENERAL.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmBuscar.cs">
+    <Compile Include="formBUSCAR.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBuscar.Designer.cs">
-      <DependentUpon>frmBuscar.cs</DependentUpon>
+    <Compile Include="formBUSCAR.Designer.cs">
+      <DependentUpon>formBUSCAR.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEliminar.cs">
+    <Compile Include="formELIMINAR.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEliminar.Designer.cs">
-      <DependentUpon>frmEliminar.cs</DependentUpon>
+    <Compile Include="formELIMINAR.Designer.cs">
+      <DependentUpon>formELIMINAR.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmAgenda.resx">
-      <DependentUpon>frmAgenda.cs</DependentUpon>
+    <EmbeddedResource Include="formGENERAL.resx">
+      <DependentUpon>formGENERAL.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmBuscar.resx">
-      <DependentUpon>frmBuscar.cs</DependentUpon>
+    <EmbeddedResource Include="formBUSCAR.resx">
+      <DependentUpon>formBUSCAR.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEliminar.resx">
-      <DependentUpon>frmEliminar.cs</DependentUpon>
+    <EmbeddedResource Include="formELIMINAR.resx">
+      <DependentUpon>formELIMINAR.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

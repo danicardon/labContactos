@@ -1,6 +1,6 @@
 ﻿namespace agendaContacto
 {
-    partial class frmAgenda
+    partial class formGENERAL
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAgenda));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formGENERAL));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -121,7 +121,7 @@
             // 
             this.treeViewContactos.Location = new System.Drawing.Point(372, 27);
             this.treeViewContactos.Name = "treeViewContactos";
-            this.treeViewContactos.Size = new System.Drawing.Size(467, 425);
+            this.treeViewContactos.Size = new System.Drawing.Size(467, 257);
             this.treeViewContactos.TabIndex = 1;
             this.treeViewContactos.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewContactos_AfterSelect);
             this.treeViewContactos.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.seleccionar);
@@ -309,7 +309,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(851, 463);
+            this.ClientSize = new System.Drawing.Size(851, 297);
             this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.groupBox2);

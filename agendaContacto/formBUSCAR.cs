@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace agendaContacto
 {
-    public partial class frmBuscar : Form
+    public partial class formBUSCAR : Form
     {
-        public frmBuscar()
+        public formBUSCAR()
         {
             InitializeComponent();
       
